@@ -1,0 +1,6 @@
+1. Collect and preprocess user financial data.
+2. Predict repayment capability using income–expense trends.
+3. Rank loans based on priority factors: interest rate, EMI, and tenure.
+4. Generate optimized repayment schedule with reduced total interest.
+5. Suggest early prepayment opportunities and dynamic goal tracking.
+6. Trigger alerts for monthly updates or deviations from goals.
