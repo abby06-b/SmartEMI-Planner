@@ -1,0 +1,22 @@
+[
+  {
+    "user_id": 1,
+    "income": 65000,
+    "expenses": 25000,
+    "loans": [
+      {"type": "education", "amount": 300000, "interest_rate": 9.5, "emi": 5000, "tenure_months": 60},
+      {"type": "car", "amount": 500000, "interest_rate": 10, "emi": 7500, "tenure_months": 48}
+    ],
+    "financial_goals": ["Pay off education loan first", "Save for vacation"]
+  },
+  {
+    "user_id": 2,
+    "income": 85000,
+    "expenses": 35000,
+    "loans": [
+      {"type": "home", "amount": 1200000, "interest_rate": 8.2, "emi": 15000, "tenure_months": 120},
+      {"type": "personal", "amount": 200000, "interest_rate": 12, "emi": 4500, "tenure_months": 36}
+    ],
+    "financial_goals": ["Reduce high-interest debt early"]
+  }
+]
