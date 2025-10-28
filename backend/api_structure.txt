@@ -1,0 +1,5 @@
+Planned API Endpoints:
+1. /users - Get all user profiles
+2. /loans - Get user loan details
+3. /recommendations - Fetch AI-optimized repayment plans
+4. /goals - Retrieve and update financial goals
