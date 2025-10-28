@@ -31,3 +31,10 @@ During the first week, we set up the repository and defined the project foundati
 
 ## Next Steps
 Week 2 – Backend architecture setup & database schema design.
+
+## Week 2 Progress
+During the second week, the backend architecture and database schema were designed.  
+The team created structured tables for users, loans, and goals, and outlined the API endpoints for future development.  
+Additionally, a blueprint for the agent-based system was defined, detailing the key roles of the Data, Financial Analysis, EMI Optimization, Predictive Analytics, and Alert Agents.  
+This forms the foundation for data handling and agent interaction in the upcoming weeks.
+
