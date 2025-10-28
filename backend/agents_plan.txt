@@ -1,0 +1,6 @@
+Planned Agents:
+1. Data Agent – Parses user data and cleans inconsistencies.
+2. Financial Analysis Agent – Analyzes cash flow patterns.
+3. EMI Optimization Agent – Generates optimal repayment schedules.
+4. Predictive Analytics Agent – Forecasts loan closure time and total interest.
+5. Alert Agent – Triggers reminders for payments and deviations.
