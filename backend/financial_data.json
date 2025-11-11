@@ -1,0 +1,15 @@
+{
+  "user_id": "U101",
+  "income": 65000,
+  "expenses": {
+    "rent": 15000,
+    "utilities": 3000,
+    "groceries": 5000,
+    "misc": 2000
+  },
+  "loans": [
+    {"loan_id": "L1", "type": "Home", "amount": 500000, "interest_rate": 8.2, "tenure_months": 120, "emi": 6100},
+    {"loan_id": "L2", "type": "Car", "amount": 200000, "interest_rate": 9.5, "tenure_months": 48, "emi": 5200},
+    {"loan_id": "L3", "type": "Education", "amount": 150000, "interest_rate": 10.0, "tenure_months": 36, "emi": 4800}
+  ]
+}
