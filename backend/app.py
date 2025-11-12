@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
+from flask_cors import CORS   # ADD THIS LINE
 import json
 from emi_optimizer import optimize_repayment
 
 app = Flask(__name__)
+CORS(app)   # ADD THIS LINE — allows frontend to talk to backend
 
 with open('financial_data.json', 'r') as f:
     data = json.load(f)
