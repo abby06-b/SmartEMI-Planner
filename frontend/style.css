@@ -38,3 +38,18 @@ pre {
     margin: 20px auto;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+#goalSection {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 80%;
+  margin: 20px auto;
+}
+#goalSection input {
+  margin: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+

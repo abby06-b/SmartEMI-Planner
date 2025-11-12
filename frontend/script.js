@@ -9,3 +9,14 @@ document.getElementById("optimizeBtn").addEventListener("click", async () => {
     const data = await res.json();
     document.getElementById("output").textContent = JSON.stringify(data, null, 2);
 });
+document.getElementById('setGoal').addEventListener('click', () => {
+  const goal = document.getElementById('goalName').value;
+  const amount = document.getElementById('goalAmount').value;
+  if (goal && amount) {
+    document.getElementById('goalStatus').innerText =
+      `Goal "${goal}" set successfully! Target: ₹${amount}`;
+  } else {
+    alert('Please fill both fields.');
+  }
+});
+
