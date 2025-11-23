@@ -19,4 +19,44 @@ document.getElementById('setGoal').addEventListener('click', () => {
     alert('Please fill both fields.');
   }
 });
+// 👉 NEW (WEEK 5): AI Reasoning / AI Insights
+document.getElementById("aiBtn").addEventListener("click", async () => {
+    const res = await fetch("http://127.0.0.1:5000/ai_reasoning");
+    const data = await res.json();
+    document.getElementById("aiOutput").textContent =
+        JSON.stringify(data, null, 2);
+});
+async function loadChart() {
+    const res = await fetch("http://127.0.0.1:5000/get_summary");
+    const data = await res.json();
+
+    const ctx = document.getElementById('summaryChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Income', 'Expenses', 'EMI'],
+            datasets: [{
+                label: 'Monthly Financial Overview',
+                data: [
+                    data["Monthly Income"],
+                    data["Total Expenses"],
+                    data["Total EMI"]
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+loadChart();
+
 
