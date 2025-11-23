@@ -44,6 +44,11 @@ def ai_reasoning():
         return jsonify(reasoning)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+from emi_optimizer import ai_reasoning
+
+@app.route('/ai_reasoning')
+def ai_insights():
+    return jsonify(ai_reasoning(data))
 
 if __name__ == '__main__':
     app.run(debug=True)
