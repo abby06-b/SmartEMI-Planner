@@ -19,3 +19,6 @@ The frontend calls:
 2. Open `frontend/index.html` in browser.
 3. Click buttons to see real-time backend data.
 
+Week 5:
+"Week 5 complete: Added AI Insights, goal tracking UI, and Chart.js visualization"
+
