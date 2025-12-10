@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Create Account – SmartEMI Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-body">
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>Create Your Account</h1>
+        <p class="auth-subtitle">Start tracking your EMIs smartly</p>
+      </div>
+
+      <div class="auth-form">
+        
+        <label class="auth-label">Name</label>
+        <input id="name" class="auth-input" placeholder="Your name">
+
+        <label class="auth-label">Email</label>
+        <input id="email" class="auth-input" placeholder="name@example.com">
+
+        <label class="auth-label">Password</label>
+        <input id="password" type="password" class="auth-input" placeholder="••••••••">
+
+        <button id="signupBtn" class="auth-button">Create Account</button>
+
+        <p id="msg" class="auth-message"></p>
+
+        <a href="login.html" class="auth-secondary-button" style="text-align:center; display:block; margin-top:10px;">
+          Already have an account? Login
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+  document.getElementById("signupBtn").addEventListener("click", async () => {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const msgEl = document.getElementById("msg");
+
+      msgEl.textContent = "Creating account...";
+
+      const res = await fetch("http://127.0.0.1:5000/signup", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({name, email, password})
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+          msgEl.style.color = "limegreen";
+          msgEl.textContent = "Account created! Redirecting to login...";
+
+          setTimeout(() => {
+              window.location.href = "login.html";
+          }, 700);
+      } else {
+          msgEl.style.color = "red";
+          msgEl.textContent = data.error || "Signup failed";
+      }
+  });
+  </script>
+
+</body>
+</html>

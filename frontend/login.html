@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SmartEMI Planner – Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+
+  <div class="auth-wrapper">
+    <div class="auth-card">
+
+      <div class="auth-header">
+        <h1>SmartEMI Planner</h1>
+        <p class="auth-subtitle">Sign in to continue</p>
+      </div>
+
+      <div class="auth-form">
+        <label class="auth-label">Email</label>
+        <input id="email" type="email" class="auth-input" placeholder="demo@example.com">
+
+        <label class="auth-label">Password</label>
+        <input id="password" type="password" class="auth-input" placeholder="••••••••">
+
+        <button id="loginBtn" class="auth-button">Login</button>
+
+        <p id="msg" class="auth-message"></p>
+
+        <button id="goDashboard" class="auth-secondary-button" style="display:none;">
+          Go to Dashboard
+        </button>
+
+        <a href="signup.html" class="auth-secondary-button"
+           style="text-align:center; display:block; margin-top:10px;">
+          Create an account
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const msgEl = document.getElementById('msg');
+
+      msgEl.style.color = "#fff";
+      msgEl.textContent = "Logging in...";
+
+      try {
+        const res = await fetch("http://127.0.0.1:5000/login", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({email, password})
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          // Store user id for future requests
+          localStorage.setItem("smartemi_user_id", data.user_id);
+
+          msgEl.style.color = "limegreen";
+          msgEl.textContent = "Login successful. Redirecting...";
+
+          document.getElementById("goDashboard").style.display = "inline-block";
+
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 800);
+        } else {
+          msgEl.style.color = "red";
+          msgEl.textContent = data.error || "Invalid credentials";
+        }
+      } catch (err) {
+        msgEl.style.color = "red";
+        msgEl.textContent = "Error connecting to server";
+      }
+    });
+
+    document.getElementById('goDashboard').addEventListener('click', () => {
+      window.location.href = "dashboard.html";
+    });
+  </script>
+
+</body>
+</html>

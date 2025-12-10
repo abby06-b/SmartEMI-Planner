@@ -56,3 +56,26 @@ if __name__ == "__main__":
     
     print("\nAI Reasoning:")
     print(ai_reasoning(data))
+def ai_reasoning(data):
+    income = data['income']
+    expenses = sum(data['expenses'].values())
+    total_emi = sum(loan['emi'] for loan in data['loans'])
+    disposable = income - expenses - total_emi
+
+    insights = []
+
+    if disposable < 5000:
+        insights.append("Your disposable income is low. Reduce non-essential expenses to improve savings.")
+    elif disposable > 20000:
+        insights.append("Great! You have strong disposable income. Consider prepaying your highest-interest loan.")
+    else:
+        insights.append("Your income-to-expense ratio is balanced. Maintain consistent EMI payments.")
+
+    # Loan analysis
+    highest_interest_loan = max(data['loans'], key=lambda x: x['interest_rate'])
+    insights.append(f"Your highest interest loan is {highest_interest_loan['type']} at {highest_interest_loan['interest_rate']}%.")
+
+    return {
+        "Disposable Income": disposable,
+        "Insights": insights
+    }
